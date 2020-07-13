@@ -9,6 +9,12 @@ verify_ssl = true
 python-dotenv = "*"
 psycopg2-binary = "*"
 pandas = "*"
+pymongo = "*"
+dnspython = "*"
+sqlite3 = "*"
+python = "*"
+autopep8 = "*"
+pycodestyle = "*"
 
 [requires]
 python_version = "3.7"
