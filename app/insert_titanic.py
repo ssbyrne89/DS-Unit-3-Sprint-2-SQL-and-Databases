@@ -13,21 +13,14 @@ from sqlalchemy import create_engine
 titanic = os.path.join(os.path.dirname(__file__), "..", "data", "titanic.csv")
 df = pd.read_csv(titanic)
 
-
-
-
 # Check df shape and null values
 
 print(df.head(5))
-
-
 
 # convert csv to sql
 
 engine = create_engine('sqlite://', echo=False)
 df.to_sql('titanic', con=engine)
-
-
 
 load_dotenv()
 DB_HOST = os.getenv("DB_HOST", default="OOPS")
@@ -35,15 +28,13 @@ DB_NAME = os.getenv("DB_NAME", default="OOPS")
 DB_USER = os.getenv("DB_USER", default="OOPS")
 DB_PASSWORD = os.getenv("DB_PASSWORD", default="OOPS")
 
-
-
-connection = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASSWORD, host=DB_HOST)
-
-
+connection = psycopg2.connect(dbname=DB_NAME,
+                              user=DB_USER,
+                              password=DB_PASSWORD,
+                              host=DB_HOST)
 
 cursor = connection.cursor()
 print("CURSOR:", cursor)
-
 
 # Create the table
 
@@ -78,7 +69,5 @@ for passenger in passengers[1:]:
 
 
 connection.commit()
-
-
 
 cursor.close()
