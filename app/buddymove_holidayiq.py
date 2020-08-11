@@ -2,7 +2,9 @@ import os
 import sqlite3
 import pandas as pd
 
-bmhiq = os.path.join(os.path.dirname(__file__), "..", "module1-introduction-to-sql", "buddymove_holidayiq.csv")
+bmhiq = os.path.join(os.path.dirname(__file__), "..",
+                                     "module1-introduction-to-sql",
+                                     "buddymove_holidayiq.csv")
 
 df = pd.read_csv(bmhiq)
 
@@ -59,7 +61,5 @@ cursor.execute("""
 for row in cursor.fetchall():
     print(row)
 print("\n")
-
-
 
 connection.close()
